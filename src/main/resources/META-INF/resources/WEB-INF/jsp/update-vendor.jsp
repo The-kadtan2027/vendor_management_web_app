@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
  <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
- 
+
  <!doctype html>
 <html lang="en">
   <head>
@@ -30,9 +30,7 @@
 	        <a class="nav-link" href="/create-vendor">Create Vendor</a>
 	      </div>
 	    </div>
-	    <div class="navbar-nav">
-	        <a href="logout" class="nav-link ">Logout</a>
-	    </div>
+	    
 	  </div>
 	</nav>
 	
@@ -98,6 +96,7 @@
 			    <button type="submit" class="btn btn-success">Save Vendor</button>
 		  </div>
 	</form:form>
+
 	</div>
 
     <!-- Optional JavaScript; choose one of the two! -->

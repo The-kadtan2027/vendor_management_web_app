@@ -30,9 +30,7 @@
 	        <a class="nav-link" href="/create-vendor">Create Vendor</a>
 	      </div>
 	    </div>
-	    <div class="navbar-nav">
-	        <a href="logout" class="nav-link ">Logout</a>
-	    </div>
+	    
 	  </div>
 	</nav>
 	
@@ -54,7 +52,7 @@
 		      <th scope="row">${vendor.vendorName}</th>
 		      <td>${vendor.bankAccountNumber}</td>
 		      <td>${vendor.bankName}</td>
-		      <td><a href="update-vendor?vendorId=${vendor.vendorId}" class="btn btn-success">EDIT</a></td>
+		      <td><a href="update-vendor?vendorId=${vendor.vendorId}&page=${currentPage}" class="btn btn-success">EDIT</a></td>
 		      <td><a class="btn btn-warning" data-bs-toggle="modal" href="#exampleModalToggle" role="button">DELETE</a></td>
 		    </tr>
 		    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
@@ -94,6 +92,7 @@
 	</nav>
 	</div>
 	
+	<c:set var="page" scope="session" value="${totalPages}" />
 	
 	
 

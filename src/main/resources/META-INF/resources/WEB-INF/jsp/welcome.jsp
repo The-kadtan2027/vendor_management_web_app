@@ -30,13 +30,12 @@
 	        <a class="nav-link" href="/create-vendor">Create Vendor</a>
 	      </div>
 	    </div>
-	    <div class="navbar-nav">
-	        <a href="logout" class="nav-link ">Logout</a>
-	    </div>
+	    
 	  </div>
 	</nav>
 	<div class="container text-center mt-5">
-		<h1 class="display-5 fw-bold">Hello, Vendor!</h1>
+		<h1 class="display-5 fw-bold">Hello, Boss!</h1>
+		<p><a href="/vendor-list?page=0">Manage</a> Your Vendors</p>
 	</div>
 
     <!-- Optional JavaScript; choose one of the two! -->

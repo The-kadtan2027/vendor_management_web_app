@@ -1,7 +1,5 @@
 package com.gk.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -10,14 +8,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.gk.model.Vendor;
 import com.gk.services.VendorServices;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
 @Controller
@@ -63,9 +62,16 @@ public class VendorController {
 		Pageable pageable = PageRequest.of(page, 5);
 		
 		Page<Vendor> vendors = vendorServices.getPaginatedList(pageable);
+		int totalPages = vendors.getTotalPages();
+		
+		if(totalPages < 1) {
+			model.put("vendor", new Vendor());
+			model.put("msg", "true");
+			return "redirect:create-vendor";
+		}
 		model.put("vendors", vendors);	// sublist of vendor objects as one page
 		model.put("currentPage", page);		//current page no.
-		model.put("totalPages", vendors.getTotalPages());	// total pages 
+		model.put("totalPages", totalPages);	// total pages 
 		return "view-all-vendors";
 	}
 	
@@ -76,22 +82,23 @@ public class VendorController {
 	}
 	
 	@RequestMapping(value="/update-vendor", method = RequestMethod.GET)
-	public String showUpdateVendorPage(@RequestParam int vendorId,ModelMap model) {
+	public String showUpdateVendorPage(@RequestParam("vendorId") int vendorId,@RequestParam("page") Integer page,ModelMap model) {
 		
 		Vendor vendor = vendorServices.findByVendorId(vendorId);
 		model.put("vendor", vendor);
-		
+		model.put("page", page);
 		return "update-vendor";
 	}
 	
 	@RequestMapping(value="/update-vendor", method = RequestMethod.POST)
-	public String updateVendor(ModelMap model,@Valid Vendor vendor, BindingResult result) {
+	public String updateVendor(ModelMap model,@Valid Vendor vendor, BindingResult result,HttpSession session) {
 		if(result.hasErrors()) {
 			return "update-vendor";
 		}
 		vendorServices.deleteByVendorId(vendor.getVendorId());
 		vendorServices.saveVendor(vendor);
-		return "redirect:vendor-list?page=0";
+		int page = (int)session.getAttribute("page");
+		return "redirect:vendor-list?page="+page;
 	}
 	
 	

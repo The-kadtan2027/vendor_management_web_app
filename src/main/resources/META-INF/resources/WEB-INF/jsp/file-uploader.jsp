@@ -30,9 +30,7 @@
 	        <a class="nav-link" href="/create-vendor">Create Vendor</a>
 	      </div>
 	    </div>
-	    <div class="navbar-nav">
-	        <a href="logout" class="nav-link ">Logout</a>
-	    </div>
+	    
 	  </div>
 	</nav>
 	<div class="container text-center mt-5">

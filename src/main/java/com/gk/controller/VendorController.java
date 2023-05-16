@@ -32,7 +32,7 @@ public class VendorController {
 	}
 
 	// to show welcome page or view 
-	@RequestMapping("/")
+	@GetMapping("/")
 	public String gotoWelcomePage() {
 		return "welcome";
 	}
@@ -98,7 +98,8 @@ public class VendorController {
 		vendorServices.deleteByVendorId(vendor.getVendorId());
 		vendorServices.saveVendor(vendor);
 		int page = (int)session.getAttribute("page");
-		return "redirect:vendor-list?page="+page;
+		
+		return "redirect:vendor-list?page="+(page-1);
 	}
 	
 	

@@ -32,7 +32,7 @@ public class VendorController {
 	}
 
 	// to show welcome page or view 
-	@GetMapping("/")
+	@GetMapping(value = {"/","/home"})
 	public String gotoWelcomePage() {
 		return "welcome";
 	}

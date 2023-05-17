@@ -1,6 +1,5 @@
 package com.gk.services;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +48,7 @@ public class VendorServices implements VendorService{
 	@Override
 	public Page<Vendor> getPaginatedList(Pageable pageable){
 		
-		return vendorRepository.findAll(pageable);
+		return vendorRepository.findAllByOrderByVendorIdDesc(pageable);
 	}
 
 	@Override

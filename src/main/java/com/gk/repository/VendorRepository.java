@@ -9,5 +9,6 @@ import com.gk.model.Vendor;
 
 public interface VendorRepository extends JpaRepository<Vendor, Integer> {
 
-	public Page<Vendor> findAll(Pageable pageable);
+	
+	public Page<Vendor> findAllByOrderByVendorIdDesc(Pageable pageable);
 }

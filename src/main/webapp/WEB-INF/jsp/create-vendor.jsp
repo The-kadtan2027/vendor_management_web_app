@@ -56,7 +56,7 @@
 			 
 			  <div class="col-md-6">
 			    <label for="bankAcountNo" class="form-label">Bank Acount No.</label>
-			    <form:input type="text" path="bankAccountNumber"  required="required" class="form-control" id="bankAcountNo" />
+			    <form:input type="number" path="bankAccountNumber"  required="required" class="form-control" id="bankAcountNo" />
 			    <form:errors class="text-danger" path="bankAccountNumber" />
 			  </div>
 			  
@@ -67,11 +67,13 @@
 			  
 			  <div class="col-12">
 			    <label for="inputAddress" class="form-label">Address Line 1</label>
-			    <form:input type="text" path="address1" class="form-control" id="inputAddress" placeholder="1234 Main St"/>
+			    <form:input type="text" path="address1" maxlength="100" class="form-control" id="inputAddress" placeholder="1234 Main St"/>
+			    <form:errors class="text-danger" path="address1" />
 			  </div>
 			  <div class="col-12">
 			    <label for="inputAddress2" class="form-label">Address Line 2</label>
-			    <form:input type="text" path="address2" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"/>
+			    <form:input type="text" path="address2" maxlength="100" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"/>
+			    <form:errors class="text-danger" path="address2" />
 			  </div>
 			  <div class="col-md-4">
 			    <label for="inputCity" class="form-label">City</label>

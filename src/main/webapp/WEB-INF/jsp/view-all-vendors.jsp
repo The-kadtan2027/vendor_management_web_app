@@ -17,7 +17,7 @@
     <title>Welcome Page</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light mb-5 " style="background-color: #e3f2fd;">
+    <nav class="navbar navbar-expand-lg navbar-light mb-3 " style="background-color: #e3f2fd;">
 	  <div class="container-fluid">
 	    <a class="navbar-brand h1" href="#">Business Name</a>
 	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,43 +34,29 @@
 	  </div>
 	</nav>
 	
-	<hr class="">
 	<div class="container">
 	<a class="btn btn-outline-success btn-lg" href="/create-vendor">Create Vendor</a>
 		<table class="table table-hover ">
 		  <thead>
 		    <tr>
+		      <th scope="col">S. No</th>
 		      <th scope="col">Vendor Name</th>
 		      <th scope="col">Bank Account No.</th>
 		      <th scope="col">Bank Name</th>
 		    </tr>
 		  </thead>
 		  <tbody>
-		  <c:forEach items="${vendors.content }" var="vendor">
+		  <c:forEach items="${vendors.content }" var="vendor" varStatus="i">
 		  
 		    <tr >
+		      <th scope="row">${(currentPage * 10)+i.index+1}</th>
 		      <th scope="row">${vendor.vendorName}</th>
 		      <td>${vendor.bankAccountNumber}</td>
 		      <td>${vendor.bankName}</td>
 		      <td><a href="update-vendor?vendorId=${vendor.vendorId}&page=${currentPage}" class="btn btn-success">EDIT</a></td>
-		      <td><a class="btn btn-warning" data-bs-toggle="modal" href="#exampleModalToggle" role="button">DELETE</a></td>
+		      <td><a href="delete-vendor?vendorId=${vendor.vendorId}" onclick="return confirmDelete()" class="btn btn-danger">DELETE</a></td>
 		    </tr>
-		    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-			  <div class="modal-dialog modal-dialog-centered">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <h5 class="modal-title" id="exampleModalToggleLabel">Confirm to Delete</h5>
-			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			      </div>
-			      <div class="modal-body">
-			       	Are you sure you want to Delete This Vendor Details.
-			      </div>
-			      <div class="modal-footer">
-			      	<a href="delete-vendor?vendorId=${vendor.vendorId}" class="btn btn-danger">Confirm</a>
-			      </div>
-			    </div>
-			  </div>
-			</div>
+		    
 		  </c:forEach>
 		    
 		  </tbody>
@@ -94,7 +80,34 @@
 	
 	<c:set var="page" scope="session" value="${totalPages}" />
 	
+	<script type="text/javascript">
+	 function confirmDelete(){
+		 return confirm("Are you Sure You want to delete this Vendor?");
+	 }
 	
+	</script>
+	
+	
+	<!-- 
+		<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+			  <div class="modal-dialog modal-dialog-centered">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="exampleModalToggleLabel">Confirm to Delete</h5>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			       	Are you sure you want to Delete This Vendor Details.
+			      </div>
+			      <div class="modal-footer">
+			      	<a href="delete-vendor?vendorId=${vendor.vendorId}" class="btn btn-danger">Confirm</a>
+			      	<a class="btn btn-warning" data-bs-toggle="modal" href="#exampleModalToggle" role="button">
+			      </div>
+			    </div>
+			  </div>
+			</div>
+	
+	 -->
 
     <!-- Optional JavaScript; choose one of the two! -->
 

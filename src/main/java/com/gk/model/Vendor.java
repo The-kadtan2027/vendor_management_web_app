@@ -14,7 +14,9 @@ public class Vendor {
 	@Size(min = 8,max =16, message = "Account Number should between 8 to 16 digits")
 	private String bankAccountNumber;
 	private String bankName;
+	@Size(max=100, message = "address must be less than 100 characters")
 	private String address1;
+	@Size(max=100, message = "address must be less than 100 characters")
 	private String address2;
 	private String city;
 	private String state;

@@ -59,7 +59,7 @@ public class VendorController {
 	@GetMapping("/vendor-list")
 	public String showAllVendors(@RequestParam Integer page, ModelMap model) {
 		
-		Pageable pageable = PageRequest.of(page, 5);
+		Pageable pageable = PageRequest.of(page, 10);
 		
 		Page<Vendor> vendors = vendorServices.getPaginatedList(pageable);
 		int totalPages = vendors.getTotalPages();
@@ -97,9 +97,10 @@ public class VendorController {
 		}
 		vendorServices.deleteByVendorId(vendor.getVendorId());
 		vendorServices.saveVendor(vendor);
-		int page = (int)session.getAttribute("page");
+		// if want to go to last page then we can use this
+//		int page = (int)session.getAttribute("page"); 
 		
-		return "redirect:vendor-list?page="+(page-1);
+		return "redirect:vendor-list?page=0";
 	}
 	
 	

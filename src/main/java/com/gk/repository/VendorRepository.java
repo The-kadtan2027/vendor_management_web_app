@@ -11,4 +11,6 @@ public interface VendorRepository extends JpaRepository<Vendor, Integer> {
 
 	
 	public Page<Vendor> findAllByOrderByVendorIdDesc(Pageable pageable);
+	
+	public Vendor findByBankAccountNumber(String accountNUmber);
 }

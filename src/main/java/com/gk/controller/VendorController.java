@@ -48,6 +48,10 @@ public class VendorController {
 	// and stores vendor details to database
 	@RequestMapping(value="/create-vendor", method = RequestMethod.POST)
 	public String createAndSaveVendor(ModelMap model,@Valid Vendor vendor, BindingResult result) {
+		if(vendorServices.findByBankAccountNumber(vendor.getBankAccountNumber()) != null) {
+			model.put("error", "true");
+			return "create-vendor";
+		}
 		if(result.hasErrors()) {
 			return "create-vendor";
 		}

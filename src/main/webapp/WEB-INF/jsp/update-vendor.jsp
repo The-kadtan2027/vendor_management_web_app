@@ -42,6 +42,7 @@
 			  <div class="col-md-6">
 			    <label for="vendorName" class="form-label">Vendor Name</label>
 			    <form:input type="text" path="vendorName" required="required" class="form-control" id="vendorName" />
+			    <form:errors class="text-danger" path="vendorName" />
 			  </div>
 			 
 			  <div class="col-md-6">
@@ -53,45 +54,41 @@
 			  <div class="col-md-6">
 			    <label for="bankName" class="form-label">Bank Name</label>
 			    <form:input type="text" path="bankName" required="required" class="form-control" id="bankName"/>
+			    <form:errors class="text-danger" path="bankName" />
 			  </div>
 			  
 			  <div class="col-12">
 			    <label for="inputAddress" class="form-label">Address Line 1</label>
 			    <form:input type="text" path="address1" class="form-control" id="inputAddress" placeholder="1234 Main St"/>
+			    <form:errors class="text-danger" path="address1" />
 			  </div>
 			  <div class="col-12">
 			    <label for="inputAddress2" class="form-label">Address Line 2</label>
 			    <form:input type="text" path="address2" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"/>
+			    <form:errors class="text-danger" path="address2" />
 			  </div>
 			  <div class="col-md-4">
 			    <label for="inputCity" class="form-label">City</label>
 			    <form:input type="text"  path="city" class="form-control" id="inputCity"/>
+			    <form:errors class="text-danger" path="city" />
 			  </div>
 			  <div class="col-md-4">
 			    <label for="inputState" class="form-label">State</label>
 			    <form:input type="text" path="state" class="form-control" id="inputstate"/>
-			    <!-- <select id="inputState" class="form-select">
-			      <option selected>Choose...</option>
-			      <option>...</option>
-			    </select> -->
+			    <form:errors class="text-danger" path="state" />
+			  
 			  </div>
 			  <div class="col-md-4">
 			    <label for="inputCountry" class="form-label">Country</label>
 			    <form:input type="text" path="country" class="form-control" id="inputCountry"/>
+			    <form:errors class="text-danger" path="country" />
 			  </div>
 			  <div class="col-md-2">
 			    <label for="inputZip" class="form-label">Zip</label>
 			    <form:input type="text" path="zipCode" class="form-control" id="inputZip"/>
+			    <form:errors class="text-danger" path="zipCode" />
 			  </div>
 			  
-			  <!-- <div class="col-12">
-			    <div class="form-check">
-			      <input class="form-check-input" type="checkbox" id="gridCheck">
-			      <label class="form-check-label" for="gridCheck">
-			        Check me out
-			      </label>
-			    </div>
-			  </div> -->
 			  <div class="col-12">
 			    <button type="submit" class="btn btn-success">Save Vendor</button>
 		  </div>

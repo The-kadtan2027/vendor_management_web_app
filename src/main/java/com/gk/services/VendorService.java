@@ -13,6 +13,7 @@ public interface VendorService {
 	public List<Vendor> getAllVendor();
 	public void deleteByVendorId(int vendorId);
 	public Vendor findByVendorId(int vendorId);
+	public Vendor findByBankAccountNumber(String accountNumber);
 	public void updateVendor(Vendor vendor);
 	public Page<Vendor> getPaginatedList(Pageable pageable);
 }

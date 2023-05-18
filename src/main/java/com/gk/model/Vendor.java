@@ -10,6 +10,7 @@ public class Vendor {
 	@Id
 	@GeneratedValue
 	private int vendorId;
+	@Size(max=100, message = "Name must be less than 100 characters")
 	private String vendorName;
 	@Size(min = 8,max =16, message = "Account Number should between 8 to 16 digits")
 	private String bankAccountNumber;
@@ -18,9 +19,13 @@ public class Vendor {
 	private String address1;
 	@Size(max=100, message = "address must be less than 100 characters")
 	private String address2;
+	@Size(max=100, message = "must be less than 100 characters")
 	private String city;
+	@Size(max=100, message = "must be less than 100 characters")
 	private String state;
+	@Size(max=100, message = "must be less than 100 characters")
 	private String country;
+	@Size(max=10, message = "must be less than 10 characters")
 	private String zipCode;
 	
 	

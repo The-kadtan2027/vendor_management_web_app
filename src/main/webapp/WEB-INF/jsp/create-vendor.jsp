@@ -52,11 +52,13 @@
 			  <div class="col-md-6">
 			    <label for="vendorName" class="form-label">Vendor Name</label>
 			    <form:input type="text" path="vendorName" required="required" class="form-control" id="vendorName" />
+			    <form:errors class="text-danger" path="vendorName" />
 			  </div>
 			 
 			  <div class="col-md-6">
 			    <label for="bankAcountNo" class="form-label">Bank Acount No.</label>
 			    <form:input type="number" path="bankAccountNumber"  required="required" class="form-control" id="bankAcountNo" />
+			    <c:if test="${not empty error}"><span class="text-warning">This account number is Already Exist!</span></c:if>
 			    <form:errors class="text-danger" path="bankAccountNumber" />
 			  </div>
 			  
@@ -78,10 +80,12 @@
 			  <div class="col-md-4">
 			    <label for="inputCity" class="form-label">City</label>
 			    <form:input type="text"  path="city" class="form-control" id="inputCity"/>
+			    <form:errors class="text-danger" path="city" />
 			  </div>
 			  <div class="col-md-4">
 			    <label for="inputState" class="form-label">State</label>
 			    <form:input type="text" path="state" class="form-control" id="inputstate"/>
+			    <form:errors class="text-danger" path="state" />
 			    <!-- <select id="inputState" class="form-select">
 			      <option selected>Choose...</option>
 			      <option>...</option>
@@ -90,10 +94,12 @@
 			  <div class="col-md-4">
 			    <label for="inputCountry" class="form-label">Country</label>
 			    <form:input type="text" path="country" class="form-control" id="inputCountry"/>
+			    <form:errors class="text-danger" path="country" />
 			  </div>
 			  <div class="col-md-2">
 			    <label for="inputZip" class="form-label">Zip</label>
-			    <form:input type="text" path="zipCode" class="form-control" id="inputZip"/>
+			    <form:input type="number" path="zipCode" class="form-control" id="inputZip"/>
+			    <form:errors class="text-danger" path="zipCode" />
 			  </div>
 			  
 			  <!-- <div class="col-12">

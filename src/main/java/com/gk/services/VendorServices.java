@@ -55,5 +55,11 @@ public class VendorServices implements VendorService{
 	public Vendor findByVendorId(int vendorId) {
 		return vendorRepository.findById(vendorId).get();
 	}
+
+
+	@Override
+	public Vendor findByBankAccountNumber(String accountNumber) {
+		return vendorRepository.findByBankAccountNumber(accountNumber);
+	}
 	
 }
